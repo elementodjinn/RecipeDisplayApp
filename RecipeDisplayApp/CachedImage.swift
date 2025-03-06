@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CachedImage: View {
     let url: String?
-    var imageLoader = ImageLoader()
+    @StateObject var imageLoader = ImageLoader()
     var body: some View {
         VStack{
             if let image = imageLoader.image {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 50)
+                    .frame(width: 100)
             } else {
                 ProgressView()
             }
